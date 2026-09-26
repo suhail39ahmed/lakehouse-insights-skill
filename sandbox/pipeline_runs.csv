@@ -1,0 +1,7 @@
+run_date,pipeline_name,status,duration_sec,rows_written
+2026-09-01,ingest_orders,success,120,10000
+2026-09-01,enrich_customers,failed,45,0
+2026-09-02,ingest_orders,success,110,10200
+2026-09-02,enrich_customers,failed,50,0
+2026-09-02,gold_revenue,success,200,5000
+2026-09-03,enrich_customers,success,60,8000

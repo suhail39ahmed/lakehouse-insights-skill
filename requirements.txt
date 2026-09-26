@@ -1,0 +1,2 @@
+# stdlib propose mode; optional: duckdb for --execute
+# duckdb>=1.0

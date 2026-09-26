@@ -1,0 +1,7 @@
+event_date,region,channel,revenue_usd,orders
+2026-09-01,APAC,web,12000.5,140
+2026-09-01,EMEA,web,9800.0,110
+2026-09-01,AMER,partner,15000.25,160
+2026-09-02,APAC,web,13100.0,150
+2026-09-02,EMEA,web,10100.5,115
+2026-09-02,AMER,web,14200.0,155

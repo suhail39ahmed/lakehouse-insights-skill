@@ -1,0 +1,37 @@
+version: 1
+warehouse: demo_lakehouse
+tables:
+  - name: gold.daily_revenue
+    description: Daily revenue by region and channel
+    columns:
+      - { name: event_date, type: date }
+      - { name: region, type: string }
+      - { name: channel, type: string }
+      - { name: revenue_usd, type: double }
+      - { name: orders, type: int }
+  - name: gold.pipeline_runs
+    description: ETL pipeline run outcomes
+    columns:
+      - { name: run_date, type: date }
+      - { name: pipeline_name, type: string }
+      - { name: status, type: string }
+      - { name: duration_sec, type: int }
+      - { name: rows_written, type: int }
+metrics:
+  - id: revenue_by_region
+    question_hints: [revenue, region, sales]
+    table: gold.daily_revenue
+    sql_template: |
+      SELECT region, SUM(revenue_usd) AS revenue_usd, SUM(orders) AS orders
+      FROM daily_revenue
+      GROUP BY region
+      ORDER BY revenue_usd DESC
+  - id: failed_pipelines
+    question_hints: [pipeline, fail, failure, etl]
+    table: gold.pipeline_runs
+    sql_template: |
+      SELECT pipeline_name, COUNT(*) AS failures, AVG(duration_sec) AS avg_duration_sec
+      FROM pipeline_runs
+      WHERE status = 'failed'
+      GROUP BY pipeline_name
+      ORDER BY failures DESC
