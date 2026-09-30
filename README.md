@@ -3,6 +3,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)
 ![Status](https://img.shields.io/badge/status-0.1.0%20MVP-green.svg)
+[![demo](https://img.shields.io/badge/demo-make%20demo-brightgreen.svg)](docs/ci/demo.yml)
 
 **Governed metrics catalog → proposed SQL for analytics questions. Execute only with an explicit `--execute` flag.**
 
@@ -24,6 +25,8 @@ pip install -e ".[duckdb]"
 Or with pipx (once published to PyPI): `pipx install lakehouse-insights-skill` — until then use editable install from this repo.
 
 ## 30-second demo
+
+![30-second demo](assets/demo-terminal.svg)
 
 ```bash
 python -m lakehouse_insights --help
